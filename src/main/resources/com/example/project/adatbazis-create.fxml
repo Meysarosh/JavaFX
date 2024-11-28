@@ -1,0 +1,26 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.project.controllers.AdatbazisCreateController" spacing="10" alignment="CENTER">
+    <Label fx:id="lblMessage" text="" style="-fx-text-fill: red;"/>
+    <HBox spacing="10">
+        <Label text="Szálloda kiválasytás:"/>
+        <ComboBox fx:id="cbSzalloda"/>
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Indulás:"/>
+        <TextField fx:id="tfIndulas"/>
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Időtartam:"/>
+        <TextField fx:id="tfIdotartam"/>
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Ár:"/>
+        <TextField fx:id="tfAr"/>
+    </HBox>
+    <Button text="Hozzáadás" onAction="#onAddRecordClick"/>
+</VBox>

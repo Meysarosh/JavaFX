@@ -1,0 +1,21 @@
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.project.controllers.AdatbazisReadController">
+    <TableView fx:id="tvData">
+        <columns>
+            <TableColumn fx:id="colHelysegNev" text="Helység"/>
+            <TableColumn fx:id="colHelysegOrszag" text="Ország"/>
+            <TableColumn fx:id="colSzallodaNev" text="Szálloda"/>
+            <TableColumn fx:id="colSzallodaBesorolas" text="Szálloda Besorolás"/>
+            <TableColumn fx:id="colTavaszIndulas" text="Indulás"/>
+            <TableColumn fx:id="colTavaszIdotartam" text="Időtartam"/>
+            <TableColumn fx:id="colTavaszAr" text="Ár"/>
+            <TableColumn fx:id="colTengerpartTav" text="Tengerpart tav"/>
+        </columns>
+    </TableView>
+</AnchorPane>
+

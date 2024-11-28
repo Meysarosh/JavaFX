@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.Pane?>
+
+<VBox spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.project.ProjectController">
+    <MenuBar fx:id="menuBar">
+        <Menu text="Adatbázis">
+            <MenuItem text="Olvas" onAction="#adatbazisReadClick"/>
+            <MenuItem text="Olvas2" onAction="#adatbazisReadClick2"/>
+            <MenuItem text="Ir" onAction="#adatbazisCreateClick"/>
+            <MenuItem text="Módosít" onAction="#adatbazisUpdateClick"/>
+            <MenuItem text="Töröl" onAction="#adatbazisDeleteClick"/>
+        </Menu>
+        <Menu text="SOAP Kliens">
+            <MenuItem text="Letoltes"/>
+            <MenuItem text="Letotltes2"/>
+            <MenuItem text="Grafikon"/>
+        </Menu>
+        <Menu text="Parhuzamos"/>
+        <Menu text="Forex">
+            <MenuItem text="Számlainformációk"/>
+            <MenuItem text="Aktuális árak"/>
+            <MenuItem text="Historikus árak"/>
+            <MenuItem text="Pozíció nyitás"/>
+            <MenuItem text=" Pozíció zárás"/>
+            <MenuItem text="Nyitott pozíciók"/>
+        </Menu>
+    </MenuBar>
+    <Pane fx:id="placeholder"/>
+</VBox>
