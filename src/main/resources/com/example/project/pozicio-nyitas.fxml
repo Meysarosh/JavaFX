@@ -1,0 +1,23 @@
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.project.controllers.PozicioNyitasController">
+<Label text="Pozíció Nyitás" style="-fx-font-size: 18px;" />
+    <Label text="Valaszon valutat:"/>
+    <ComboBox fx:id="currencyPairDropdown" />
+    <Label fx:id="closeoutBidLabel" />
+    <Label fx:id="closeoutAskLabel" />
+<HBox spacing="10">
+    <Label text="Összeg (Amount):" />
+    <TextField fx:id="amountInput" promptText="Adja meg az összeget" />
+</HBox>
+<HBox spacing="10">
+    <Button text="Vétel" onAction="#handleVetelClick" />
+    <Button text="Eladás" onAction="#handleEladasClick" />
+</HBox>
+<Label fx:id="statusLabel" style="-fx-text-fill: red;" />
+</VBox>

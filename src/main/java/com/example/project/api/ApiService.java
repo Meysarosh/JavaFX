@@ -14,6 +14,57 @@ public class ApiService {
     private static final String AUTH_TOKEN = "43661157882454f054ce8b541346e0e7-ad207a56f91b867d89f59a3884fcb876";
     private static final String ACCOUNT_ID = "101-004-30461860-001";
 
+
+
+    public static String placeOrder(String actionType, String amount, String currencyPair) throws Exception {
+//        "https://api-fxtrade.oanda.com/v3/accounts/<ACCOUNT>/orders"
+        String url = API_URL + ACCOUNT_ID + "/orders";
+
+        // Determine the sign of the units based on action type
+        String units = actionType.equalsIgnoreCase("VETEL") ? amount : "-" + amount;
+
+        // Construct JSON body
+        String jsonBody = """
+        {
+          "order": {
+            "units": "%s",
+            "instrument": "%s",
+            "timeInForce": "FOK",
+            "type": "MARKET",
+            "positionFill": "DEFAULT"
+          }
+        }
+        """.formatted(units, currencyPair);
+
+        try {
+            // Setup HTTP connection
+            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Authorization", "Bearer " + AUTH_TOKEN);
+            connection.setRequestProperty("Content-Type", "application/json");
+
+            // Send JSON body
+            connection.setDoOutput(true);
+            connection.getOutputStream().write(jsonBody.getBytes(StandardCharsets.UTF_8));
+
+            // Check the response code
+            int responseCode = connection.getResponseCode();
+            if (responseCode == 201 || responseCode == 200) { // Successful order creation
+                InputStream inputStream = connection.getInputStream();
+                String jsonResponse = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+                System.out.println("Order Response: " + jsonResponse);
+                return jsonResponse; // Optionally, parse this for user-friendly output
+            } else {
+                // Handle non-200 responses
+                InputStream errorStream = connection.getErrorStream();
+                String errorResponse = new String(errorStream.readAllBytes(), StandardCharsets.UTF_8);
+                throw new RuntimeException("Failed to place order: " + responseCode + " " + errorResponse);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to place order", e);
+        }
+    }
+
     public static PriceData fetchPricing(String currencyPair) throws Exception {
 //        String url = "https://api-fxtrade.oanda.com/v3/accounts/<ACCOUNT>/pricing?instruments=EUR_USD%2CUSD_CAD";
         String url = API_URL + ACCOUNT_ID + "/pricing?instruments=" + currencyPair;
@@ -43,7 +94,6 @@ public class ApiService {
             throw new RuntimeException("Failed to fetch pricing data: HTTP code " + responseCode);
         }
     }
-
 
     public static AccountSummary fetchAccountSummary() throws Exception {
         String url = API_URL + ACCOUNT_ID + "/summary";

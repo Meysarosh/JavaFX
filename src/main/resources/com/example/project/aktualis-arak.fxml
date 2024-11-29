@@ -1,11 +1,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-
-
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+
 <VBox fx:controller="com.example.project.controllers.AktualisArakController"
       xmlns:fx="http://javafx.com/fxml">
     <Label text="Valaszon valutat:"/>
