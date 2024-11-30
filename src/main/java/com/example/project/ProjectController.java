@@ -16,6 +16,10 @@ import java.util.function.Consumer;
 public class ProjectController {
     @FXML private Pane placeholder;
 
+    public void pozicioZarasClick() {
+        loadView("pozicio-zaras.fxml", null);
+    }
+
     public void nyitottPoziciokClick() {
         loadView("nyitott-poziciok.fxml", controller -> {
             if (controller instanceof NyitottPoziciokController nyitottPoziciokController) {
