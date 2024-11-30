@@ -23,8 +23,8 @@
         </Menu>
         <Menu text="Parhuzamos"/>
         <Menu text="Forex">
-            <MenuItem text="Számlainformációk"/>
-            <MenuItem text="Aktuális árak"/>
+            <MenuItem text="Számlainformációk" onAction="#szamlainformaciokClick"/>
+            <MenuItem text="Aktuális árak" onAction="#aktualisArakClick"/>
             <MenuItem text="Historikus árak"/>
             <MenuItem text="Pozíció nyitás"/>
             <MenuItem text=" Pozíció zárás"/>

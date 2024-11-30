@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.project.controllers.SzamlainformaciokController">
+    <TableView fx:id="accountTable" layoutX="10" layoutY="10" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="columnAlias" text="Alias" prefWidth="100"/>
+            <TableColumn fx:id="columnBalance" text="Balance" prefWidth="100"/>
+            <TableColumn fx:id="columnCurrency" text="Currency" prefWidth="100"/>
+            <TableColumn fx:id="columnMarginRate" text="Margin Rate" prefWidth="100"/>
+            <TableColumn fx:id="columnPL" text="P/L" prefWidth="100"/>
+            <TableColumn fx:id="columnNAV" text="NAV" prefWidth="100"/>
+        </columns>
+    </TableView>
+</AnchorPane>

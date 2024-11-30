@@ -1,5 +1,9 @@
 package com.example.project;
 
+import com.example.project.api.AccountSummary;
+import com.example.project.api.ApiService;
+import com.example.project.controllers.AktualisArakController;
+import com.example.project.controllers.SzamlainformaciokController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,6 +15,31 @@ import java.util.function.Consumer;
 public class ProjectController {
     @FXML
     private Pane placeholder;
+
+
+    public void aktualisArakClick() {
+        loadView("aktualis-arak.fxml", controller -> {
+            if (controller instanceof AktualisArakController aktualisArakController) {
+                aktualisArakController.initializeDropdown();
+            }
+        });
+    }
+
+
+
+    public void szamlainformaciokClick() {
+        loadView("szamlainformaciok.fxml", controller -> {
+            if (controller instanceof SzamlainformaciokController szamlainformaciokController) {
+                try {
+                    szamlainformaciokController.initialize();
+                    AccountSummary summary = ApiService.fetchAccountSummary();
+                    szamlainformaciokController.populateAccountSummary(summary);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
     public void adatbazisReadClick() {
         loadView("adatbazis-read.fxml", controller -> {
