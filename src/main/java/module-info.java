@@ -14,7 +14,7 @@ module com.example.project {
     // Gson for JSON parsing
     requires com.google.gson;
 
-    opens com.example.project.api to com.google.gson;
+    opens com.example.project.api to com.google.gson, javafx.base, javafx.fxml;
     // Allow reflection-based frameworks (like Hibernate) to access specific packages
     opens com.example.project to javafx.fxml, org.hibernate.orm.core;
     exports com.example.project;
@@ -24,4 +24,5 @@ module com.example.project {
 
     opens com.example.project.controllers to javafx.fxml, org.hibernate.orm.core;
     exports com.example.project.controllers;
+
 }
