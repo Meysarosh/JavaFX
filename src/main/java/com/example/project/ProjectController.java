@@ -3,23 +3,28 @@ package com.example.project;
 import com.example.project.api.AccountSummary;
 import com.example.project.api.ApiService;
 import com.example.project.controllers.AktualisArakController;
+import com.example.project.controllers.NyitottPoziciokController;
 import com.example.project.controllers.PozicioNyitasController;
 import com.example.project.controllers.SzamlainformaciokController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
-
 import java.io.IOException;
 import java.util.function.Consumer;
 
 public class ProjectController {
     @FXML private Pane placeholder;
-    @FXML private Pane placeholder2;
 
+    public void nyitottPoziciokClick() {
+        loadView("nyitott-poziciok.fxml", controller -> {
+            if (controller instanceof NyitottPoziciokController nyitottPoziciokController) {
+                nyitottPoziciokController.loadPositions();
+            }
+        });
+    }
 
-public void pozicioNyitasClick() {
+    public void pozicioNyitasClick() {
     loadView("pozicio-nyitas.fxml", controller -> {
         if (controller instanceof PozicioNyitasController pozicioNyitasController) {
             pozicioNyitasController.initializeDropdown();

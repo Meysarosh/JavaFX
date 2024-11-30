@@ -6,6 +6,6 @@
       xmlns:fx="http://javafx.com/fxml">
     <Label text="Valaszon valutat:"/>
     <ComboBox fx:id="currencyPairDropdown" />
-            <Label fx:id="closeoutBidLabel" />
-            <Label fx:id="closeoutAskLabel" />
+    <Label fx:id="closeoutAskLabel" />
+    <Label fx:id="closeoutBidLabel" />
 </VBox>

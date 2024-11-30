@@ -5,7 +5,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.project.controllers.AdatbazisReadController">
-    <TableView fx:id="tvData">
+    <TableView fx:id="tvData" >
         <columns>
             <TableColumn fx:id="colHelysegNev" text="Helység"/>
             <TableColumn fx:id="colHelysegOrszag" text="Ország"/>

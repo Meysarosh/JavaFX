@@ -27,9 +27,9 @@
             <MenuItem text="Aktuális árak" onAction="#aktualisArakClick"/>
             <MenuItem text="Historikus árak"/>
             <MenuItem text="Pozíció nyitás" onAction="#pozicioNyitasClick"/>
-            <MenuItem text=" Pozíció zárás"/>
-            <MenuItem text="Nyitott pozíciók"/>
+            <MenuItem text="Pozíció zárás"/>
+            <MenuItem text="Nyitott pozíciók" onAction="#nyitottPoziciokClick"/>
         </Menu>
     </MenuBar>
-    <Pane fx:id="placeholder"/>
+    <Pane fx:id="placeholder" />
 </VBox>

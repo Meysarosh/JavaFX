@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.project.controllers.NyitottPoziciokController" spacing="10" alignment="CENTER">
+    <TableView fx:id="positionsTable">
+        <columns>
+            <TableColumn text="ID" fx:id="columnId"/>
+            <TableColumn text="Instrument" fx:id="columnInstrument" />
+            <TableColumn text="Egységek" fx:id="columnUnits"/>
+            <TableColumn text="Ár" fx:id="columnPrice"/>
+            <TableColumn text="Nyer/Veszt" fx:id="columnPL"/>
+            <TableColumn text="Margin" fx:id="columnMargin"/>
+        </columns>
+    </TableView>
+</VBox>
