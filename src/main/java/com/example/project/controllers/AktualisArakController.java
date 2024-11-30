@@ -11,24 +11,9 @@ import javafx.scene.control.TableView;
 
 public class AktualisArakController {
 
-    @FXML
-    private ComboBox<String> currencyPairDropdown;
-
-    @FXML
-    private TableView<PriceData> priceTable;
-
-    @FXML
-    private TableColumn<PriceData, String> columnInstrument;
-
-    @FXML
-    private TableColumn<PriceData, String> columnCloseoutAsk;
-
-    @FXML
-    private TableColumn<PriceData, String> columnCloseoutBid;
-    @FXML
-    Label closeoutAskLabel;
-    @FXML
-    Label closeoutBidLabel;
+    @FXML private ComboBox<String> currencyPairDropdown;
+    @FXML Label closeoutAskLabel;
+    @FXML Label closeoutBidLabel;
 
     public void initializeDropdown() {
         currencyPairDropdown.getItems().addAll("EUR_USD", "USD_JPY", "GBP_USD", "USD_CHF");
