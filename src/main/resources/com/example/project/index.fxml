@@ -21,7 +21,9 @@
             <MenuItem text="Letotltes2"/>
             <MenuItem text="Grafikon"/>
         </Menu>
-        <Menu text="Parhuzamos"/>
+        <Menu text="Parhuzamos">
+            <MenuItem text="parhuzamos vegrehajtas"  onAction="#parhuzamosClick"/>
+        </Menu>
         <Menu text="Forex">
             <MenuItem text="Számlainformációk" onAction="#szamlainformaciokClick"/>
             <MenuItem text="Aktuális árak" onAction="#aktualisArakClick"/>
