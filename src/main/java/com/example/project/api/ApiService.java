@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApiService {
@@ -15,6 +16,38 @@ public class ApiService {
     private static final String API_URL = "https://api-fxpractice.oanda.com/v3/accounts/";
     private static final String AUTH_TOKEN = "43661157882454f054ce8b541346e0e7-ad207a56f91b867d89f59a3884fcb876";
     private static final String ACCOUNT_ID = "101-004-30461860-001";
+
+
+    public static List<HistoricalPriceData> fetchHistoricalPrices(String currency, String startDate, int count) throws Exception {
+//        "https://api-fxtrade.oanda.com/v3/instruments/USD_JPY/candles?count=10&price=A&from=2016-01-01T00%3A00%3A00.000000000Z&granularity=D"
+        String url = "https://api-fxpractice.oanda.com/v3/instruments/" + currency + "/candles?count=" + count + "&price=A&from=" + startDate + "&granularity=D";
+
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        connection.setRequestMethod("GET");
+        connection.setRequestProperty("Authorization", "Bearer " + AUTH_TOKEN);
+        connection.setRequestProperty("Content-Type", "application/json");
+
+        if (connection.getResponseCode() == 200) {
+            InputStream inputStream = connection.getInputStream();
+            String jsonResponse = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+            JsonObject jsonObject = new Gson().fromJson(jsonResponse, JsonObject.class);
+            System.out.println("Historical Data response: " + jsonObject.toString());
+
+            List<HistoricalPriceData> result = new ArrayList<>();
+            jsonObject.getAsJsonArray("candles").forEach(candle -> {
+                JsonObject askData = candle.getAsJsonObject().getAsJsonObject("ask");
+                String time = candle.getAsJsonObject().get("time").getAsString();
+                result.add(new HistoricalPriceData(
+                        time,
+                        askData.get("c").getAsString()
+                ));
+            });
+
+            return result;
+        } else {
+            throw new RuntimeException("Failed to fetch data: HTTP " + connection.getResponseCode());
+        }
+    }
 
     public static ClosePositionResponse closePosition(String instrument, String side) throws Exception {
 //        "https://api-fxtrade.oanda.com/v3/accounts/<ACCOUNT>/positions/EUR_USD/close"
