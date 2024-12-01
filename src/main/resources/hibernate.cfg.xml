@@ -4,8 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:sqlite:C:/Users/meysa/Desktop/felvi/JAVA-ALK/HFEA/feladat.db</property>
-<!--        <property name="connection.url">jdbc:sqlite:./feladat.db</property>-->
+        <property name="connection.url">jdbc:sqlite:C:/adatok/feladat.db</property>
         <property name="dialect">org.sqlite.hibernate.dialect.SQLiteDialect</property>
         <property name="connection.driver_class">org.sqlite.JDBC</property>
         <mapping class="com.example.project.utazasdb.Helyseg"/>

@@ -16,6 +16,10 @@ import java.util.function.Consumer;
 public class ProjectController {
     @FXML private Pane placeholder;
 
+    public void parhuzamosClick() {
+        loadView("parhuzamos.fxml", null);
+    }
+
     public void hisztorikusArakClick() {
         loadView("hisztorikus-arak.fxml", null);
     }
