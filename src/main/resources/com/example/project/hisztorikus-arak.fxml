@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.Pane?>
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.project.controllers.HisztorikusArakController">
+    <ComboBox fx:id="currencyDropdown" prefWidth="200" />
+    <DatePicker fx:id="startDatePicker" promptText="Start Date" />
+    <DatePicker fx:id="endDatePicker" promptText="End Date" />
+    <Button text="Keresés" onAction="#fetchHistoricalData" />
+    <Pane fx:id="parentPane">
+
+    <LineChart fx:id="priceChart" title="Historical Prices">
+        <xAxis>
+            <CategoryAxis fx:id="dateAxis" label="Date" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="priceAxis" label="Price" />
+        </yAxis>
+    </LineChart>
+    </Pane>
+</VBox>

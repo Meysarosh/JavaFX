@@ -1,6 +1,7 @@
 package com.example.project.controllers;
 
 import com.example.project.api.ApiService;
+import com.example.project.api.OpeningPositionResponse;
 import com.example.project.api.PriceData;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -62,9 +63,18 @@ public class PozicioNyitasController {
         }
 
         try {
-            String result = ApiService.placeOrder(actionType, amount, currencyPair);
-            statusLabel.setStyle("-fx-text-fill: green;");
-            statusLabel.setText("Sikeres művelet: " + result);
+            OpeningPositionResponse response = ApiService.placeOrder(actionType, amount, currencyPair);
+
+            if (response.getOrderFillTransaction() != null) {
+
+                statusLabel.setStyle("-fx-text-fill: green;");
+                statusLabel.setText("Sikeres művelet: " + "\nindíték: " + response.getOrderFillTransaction().getReason());
+
+            } else if (response.getOrderCancelTransaction() != null) {
+                statusLabel.setStyle("-fx-text-fill: red;");
+                statusLabel.setText("Pozíció nyitás elutasítva" + "\nindíték: " + response.getOrderCancelTransaction().getReason());
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             statusLabel.setStyle("-fx-text-fill: red;");

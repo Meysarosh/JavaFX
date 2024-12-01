@@ -32,7 +32,7 @@ public class AktualisArakController {
             PriceData pricing = ApiService.fetchPricing(currencyPair);
 
             closeoutAskLabel.setText("Vetel: " + pricing.getCloseoutAsk());
-            closeoutBidLabel.setText("Eladas" + pricing.getCloseoutBid());
+            closeoutBidLabel.setText("Eladas: " + pricing.getCloseoutBid());
             closeoutAskLabel.setStyle("-fx-background-color: green; -fx-text-fill: white;");
             closeoutBidLabel.setStyle("-fx-background-color: red; -fx-text-fill: white;");
 
